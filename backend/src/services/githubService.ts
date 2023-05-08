@@ -1,17 +1,13 @@
 /* eslint-disable prettier/prettier */
 import axios from 'axios';
 
-console.log(process.env)
-
-const TOKEN = process.env.GITHUB_API_TOKEN;
-
-const getCommits = async (url: string) => {
+const getCommits = async (url: string, token: string) => {
   const fetchOptions = {
     method: 'GET',
     headers: {
       Accept: 'application/vnd.github+json',
       'X-GitHub-Api-Version': '2022-11-28',
-      Authorization: `Bearer ${TOKEN}`,
+      Authorization: `Bearer ${token}`,
     },
   };
 
@@ -40,13 +36,13 @@ const getCommits = async (url: string) => {
   }
 };
 
-const getBranches = async (url: string) => {
+const getBranches = async (url: string, token: string) => {
   const fetchOptions = {
     method: 'GET',
     headers: {
       Accept: 'application/vnd.github+json',
       'X-GitHub-Api-Version': '2022-11-28',
-      Authorization: `Bearer ${TOKEN}`,
+      Authorization: `Bearer ${token}`,
     },
   };
 
